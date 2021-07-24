@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Open URI in native app
+Comment=Open https links for Zoom or MSTeams meetings directly in the apps, skipping the browser
+Exec=open-uri-in-native-app.bash %U
+Terminal=false
+Categories=Network;
+MimeType=x-scheme-handler/https;
+X-KDE-Protocols=https
