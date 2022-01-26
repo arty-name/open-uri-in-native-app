@@ -6,10 +6,10 @@ set -o pipefail
 
 URI=$1
 
-if [[ $URI =~ ^https://zoom.us/j/ ]]; then
+if [[ $URI =~ ^https://([a-zA-Z0-9]+\.)?zoom.us/j/ ]]; then
   ZOOM=$(xdg-mime query default x-scheme-handler/zoommtg)
   if [[ -n $ZOOM ]]; then
-    NEW=$(echo $URI | sed -E 's@https://zoom.us/j/@zoommtg://zoom.us/join?confno=@; s@\?pwd=@\&pwd=@')
+    NEW=$(echo $URI | sed -E 's@https://([a-zA-Z0-9]+\.)?zoom.us/j/@zoommtg://zoom.us/join?confno=@; s@\?pwd=@\&pwd=@')
     gtk-launch $ZOOM $NEW
     exit 0;
   fi
