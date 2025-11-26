@@ -25,5 +25,14 @@ if [[ $URI =~ ^https://teams.microsoft.com/l/ ]]; then
   fi
 fi
 
+if [[ $URI =~ ^https://app.pachca.com/ ]]; then
+ PACHCA=$(xdg-mime query default x-scheme-handler/pachca)
+ if [[ -n $PACHCA ]]; then
+   NEW=$(echo $URI | sed -E 's@https://app.pachca.com/chats/@pachca:/chats/@')
+   gtk-launch $PACHCA $NEW
+   exit 0;
+ fi
+fi
+
 BROWSER=$(xdg-mime query default x-scheme-handler/http)
 gtk-launch $BROWSER $URI
