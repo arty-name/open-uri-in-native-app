@@ -7,4 +7,4 @@ Exec=open-uri-in-native-app.bash %U
 Terminal=false
 Categories=Network;
 MimeType=x-scheme-handler/https;
-X-KDE-Protocols=https
+
