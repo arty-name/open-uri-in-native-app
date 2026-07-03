@@ -26,12 +26,20 @@ if [[ $URI =~ ^https://teams.microsoft.com/l/ ]]; then
 fi
 
 if [[ $URI =~ ^https://app.pachca.com/ ]]; then
- PACHCA=$(xdg-mime query default x-scheme-handler/pachca)
- if [[ -n $PACHCA ]]; then
-   NEW=$(echo $URI | sed -E 's@https://app.pachca.com/chats/@pachca:/chats/@')
-   gtk-launch $PACHCA $NEW
-   exit 0;
- fi
+ PACHCA=$(xdg-mime query default x-scheme-handler/pachca)
+ if [[ -n $PACHCA ]]; then
+   NEW=$(echo $URI | sed -E 's@https://app.pachca.com/chats/@pachca:/chats/@')
+   gtk-launch $PACHCA $NEW
+   exit 0;
+ fi
+fi
+
+if [[ $URI =~ ^https://t\.me/ ]]; then
+  TELEGRAM=$(xdg-mime query default x-scheme-handler/tg)
+  if [[ -n $TELEGRAM ]]; then
+    gtk-launch $TELEGRAM $URI
+    exit 0;
+  fi
 fi
 
 BROWSER=$(xdg-mime query default x-scheme-handler/http)

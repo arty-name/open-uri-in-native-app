@@ -18,4 +18,4 @@ xdg-mime default open-uri-in-native-app.desktop x-scheme-handler/https
 
 Unfortunately this cannot alter the behavior of links you see and click in the browser. A browser extension might help with that.
 
-Only Zoom and MSTeams are supported at the moment, please open an issue if you want to add another app.
+Zoom, MSTeams, Telegram and Pachca are supported at the moment, please open an issue if you want to add another app.
